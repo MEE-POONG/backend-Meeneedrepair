@@ -1,0 +1,43 @@
+@font-face {
+    font-family: "K2D";
+    src: url("/font/K2D/K2D-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "K2D";
+    src: url("/font/K2D/K2D-BoldItalic.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "K2D";
+    src: url("/font/K2D/K2D-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "K2D";
+    src: url("/font/K2D/K2D-ExtraBoldItalic.ttf") format("truetype");
+    font-weight: 800;
+    font-style: italic;
+}
+
+body {
+    font-family: "K2D", sans-serif;
+}
+strong {
+    font-weight: bold; // Uses K2D-Bold.ttf
+}
+
+em {
+    font-style: italic; // Uses K2D-Italic.ttf
+}
+
+strong em {
+    font-weight: bold;
+    font-style: italic; // Uses K2D-BoldItalic.ttf
+}
