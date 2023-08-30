@@ -10,35 +10,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Admin {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  username    String?
-  password    String?
-  firstname   String?
-  lastname    String?
-  bankAccount String?
-  bank        String?
-  phone       String?
-  line        String?
-  nickName    String?
-  createdAt   DateTime? @default(now())
-  updatedAt   DateTime? @updatedAt
-  deleted_at  DateTime? @map("deleted_at")
+model UserName {
+id  String  @id @default(auto()) @map("_id") @db.ObjectId
+username String?
+
 }
 
-model AgentIncomeSystem {
-  id              String    @id @default(auto()) @map("_id") @db.ObjectId
-  comSum          Int?
-  interestUFA     Int?
-  interestBETFLIX Int?
-  interesSum      Int?
-  percentage      Int?
-  totalLoss       Int?
-  income          Int?
-  createdAt       DateTime? @default(now())
-  updatedAt       DateTime? @updatedAt
-  deleted_at      DateTime? @map("deleted_at")
-}
 
 model InvestmentUser {
   id         String    @id @default(auto()) @map("_id") @db.ObjectId
@@ -86,36 +63,8 @@ model Member {
   userAG        UserAG[]
 }
 
-model MinusIncome {
-  id              String    @id @default(auto()) @map("_id") @db.ObjectId
-  negativeBalance Int?
-  transferOverdue Int?
-  pomotion        Int?
-  investment      Int?
-  createdAt       DateTime? @default(now())
-  updatedAt       DateTime? @updatedAt
-  deleted_at      DateTime? @map("deleted_at")
 }
 
-model UserAG {
-  id                 String    @id @default(auto()) @map("_id") @db.ObjectId
-  username           String?
-  originAG           String?
-  position           String?
-  percent            Float?    @default(0)
-  commission         Boolean?  @default(false)
-  overdue            Boolean?  @default(false)
-  adjustPercentage   Boolean?  @default(false)
-  pay                Boolean?  @default(false)
-  customerCommission Boolean?  @default(false)
-  actuallypaid       Boolean?  @default(false)
-  recommender        String?
-  createdAt          DateTime? @default(now())
-  updatedAt          DateTime? @updatedAt
-  deleted_at         DateTime? @map("deleted_at")
-  memberId           String?   @db.ObjectId
-  member             Member?   @relation(fields: [memberId], references: [id])
-}
 
 model PastAG {
   id         String    @id @default(auto()) @map("_id") @db.ObjectId
@@ -129,33 +78,6 @@ model PastAG {
   deleted_at DateTime? @map("deleted_at")
 }
 
-model PastBETFLIX {
-  id         String    @id @default(auto()) @map("_id") @db.ObjectId
-  online     Int?
-  comC       Int?
-  loseC      Int?
-  loseM      Int?
-  createdAt  DateTime? @default(now())
-  updatedAt  DateTime? @updatedAt
-  deleted_at DateTime? @map("deleted_at")
 }
 
-model RightsManagement {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  page        String?
-  rightToWork String?
-  createdAt   DateTime? @default(now())
-  updatedAt   DateTime? @updatedAt
-  deleted_at  DateTime? @map("deleted_at")
-}
 
-model TransferSummary {
-  id               String    @id @default(auto()) @map("_id") @db.ObjectId
-  recommendedValue Int?
-  agentTotal       Int?
-  masterTotal      Int?
-  investment       Int?
-  createdAt        DateTime? @default(now())
-  updatedAt        DateTime? @updatedAt
-  deleted_at       DateTime? @map("deleted_at")
-}
