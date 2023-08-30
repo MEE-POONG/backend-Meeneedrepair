@@ -1,58 +1,59 @@
-import { Member } from '@prisma/client';
+
 import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { FaPen, FaTrashAlt } from 'react-icons/fa';
-interface EditModalProps {
-    data: Member;
-    apiEdit: () => Promise<any>; // add this line
+import { FaTrashAlt } from 'react-icons/fa';
+interface DeleteModalProps {
+    data: any;
+    apiDelete: () => Promise<any>; // add this line
 }
-const EditMemberModal: React.FC<EditModalProps> = ({ data, apiEdit }) => {
+const DeleteMemberModal: React.FC<DeleteModalProps> = ({ data, apiDelete }) => {
     const [show, setShow] = useState<boolean>(false);
-    const [checkEdit, setCheckEdit] = useState<string>("not");
+    const [checkDelete, setCheckDelete] = useState<string>("not");
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    let heading = `ลบข้อมูล : ${data?.firstname} ${data.lastname}`;
+    let heading = `ลบข้อมูล`;
     let detail = `ต้องการลบข้อมูลใช่หรือไม่`;
     let variant = "";
 
-    if (checkEdit === 'success') {
+    if (checkDelete === 'success') {
         variant = 'success';
         detail = 'ลบข้อมูลสำเร็จ';
-    } else if (checkEdit === 'primary') {
+    } else if (checkDelete === 'primary') {
         variant = 'primary';
         detail = 'กำลังลบข้อมูล';
-    } else if (checkEdit === 'danger') {
+    } else if (checkDelete === 'danger') {
         variant = 'danger';
         detail = 'Error ลบข้อมูลไม่สำเร็จ';
-    } else if (checkEdit === 'warning') {
+    } else if (checkDelete === 'warning') {
         variant = 'warning';
         detail = 'กรอกข้อมูลไม่ครบ';
     }
-    const handleEdit = () => {
-        setCheckEdit("primary");
-        apiEdit().then(() => {
-            setCheckEdit("success");
+    const handleDelete = () => {
+        setCheckDelete("primary");
+        apiDelete().then(() => {
+            setCheckDelete("success");
             setTimeout(() => {
-                setCheckEdit("not");
+                setCheckDelete("not");
                 handleClose();
             }, 1000);
         }).catch(() => {
-            setCheckEdit("danger");
+            setCheckDelete("danger");
         });
     };
     const handleCloseAndReset = () => {
         handleClose();
-        setCheckEdit("not");
+        setCheckDelete("not");
     };
 
     return (
         <>
-            <Button className="mx-2 btn" bsPrefix="icon" onClick={handleShow}>
-                <FaPen />
+            <Button className="mx-1 btn danger" bsPrefix="icon" onClick={handleShow}>
+                <FaTrashAlt />
+                <span className="h-tooltiptext">ลบ</span>
             </Button>
             <Modal show={show} onHide={handleCloseAndReset}>
                 <Modal.Header  >
@@ -65,12 +66,12 @@ const EditMemberModal: React.FC<EditModalProps> = ({ data, apiEdit }) => {
                     </Alert>
                 </Modal.Body>
                 <Modal.Footer className='d-flex justify-content-around'>
-                    <Button variant="secondary" className={checkEdit === 'not' || checkEdit === 'danger' ? "my-2" : "d-none"} onClick={handleCloseAndReset}>
+                    <Button variant="secondary" className={checkDelete === 'not' || checkDelete === 'danger' ? "my-2" : "d-none"} onClick={handleCloseAndReset}>
                         Close
                     </Button>
-                    <Button variant="primary" className={checkEdit === 'not' || checkEdit === 'danger' ? "my-2" : "d-none"} onClick={handleEdit}>
-                        {/* <Button variant="primary" className={checkEdit === 'not' || checkEdit === 'danger' ? "my-2" : "d-none"} onClick={() => setCheckEdit("primary")}> */}
-                        ยืนยันการแก้ไข
+                    <Button variant="danger " className={checkDelete === 'not' || checkDelete === 'danger' ? "my-2" : "d-none"} onClick={handleDelete}>
+                        {/* <Button variant="primary" className={checkDelete === 'not' || checkDelete === 'danger' ? "my-2" : "d-none"} onClick={() => setCheckDelete("primary")}> */}
+                        ยืนยันการลบ
                     </Button>
                 </Modal.Footer>
 
@@ -79,4 +80,4 @@ const EditMemberModal: React.FC<EditModalProps> = ({ data, apiEdit }) => {
     );
 }
 
-export default EditMemberModal;
+export default DeleteMemberModal;

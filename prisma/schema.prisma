@@ -17,66 +17,54 @@ username String?
 }
 
 
-model InvestmentUser {
-  id         String    @id @default(auto()) @map("_id") @db.ObjectId
-  username   String?
-  password   String?
-  createdAt  DateTime? @default(now())
-  updatedAt  DateTime? @updatedAt
-  deleted_at DateTime? @map("deleted_at")
+model Category {
+id  String  @id @default(auto()) @map("_id") @db.ObjectId 
+categoryname String?
+categorybrand String?
+categoryprice String?
+
+// product Product[]
 }
 
-model MastertIncomeSystem {
-  id                      String    @id @default(auto()) @map("_id") @db.ObjectId
-  comSum                  Int?
-  interestUFA             Int?
-  interestBETFLIX         Int?
-  comA                    Int?
-  fullPayAgent            Int?
-  actualPayAgent          Int?
-  totalLoss               Int?
-  percentage              Int?
-  income                  Int?
-  recommendedValueUFRUU   Int?
-  recommendedValueUFRUV   Int?
-  recommendedValueUFRUV02 Int?
-  createdAt               DateTime? @default(now())
-  updatedAt               DateTime? @updatedAt
-  deleted_at              DateTime? @map("deleted_at")
-}
+model Product {
+id  String  @id @default(auto()) @map("_id") @db.ObjectId
+productname String?
+productbrand String?
+productmodel String?
+productdetail String? 
+producttype String?
+productcost String?
+productprice String?
+productremaining String?
+productimg String?
+productim1 String?
+productim2 String?
+productim3 String?
+productim4 String?
 
-model Member {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  username      String?
-  password      String?
-  firstname     String?
-  lastname      String?
-  bankAccount   String?
-  bank          String?
-  phone         String?
-  line          String?
-  email         String?
-  emailVerified Boolean?  @default(false)
-  createdAt     DateTime? @default(now())
-  updatedAt     DateTime? @updatedAt
-  deleted_at    DateTime? @map("deleted_at")
-  userAG        UserAG[]
-}
+
+// categoryId String? @db.ObjectId
+// category Category? @relation(fields: [categoryId], references: [id])
 
 }
 
 
-model PastAG {
-  id         String    @id @default(auto()) @map("_id") @db.ObjectId
-  online     Int?
-  comC       Int?
-  loseC      Int?
-  comM       Int?
-  loseM      Int?
-  createdAt  DateTime? @default(now())
-  updatedAt  DateTime? @updatedAt
-  deleted_at DateTime? @map("deleted_at")
+model  News {
+id  String  @id @default(auto()) @map("_id") @db.ObjectId
+title String?
+subtitle String?
+detail String? 
+img String?
+img1 String?
+
 }
+
+
+model Promote {
+id  String  @id @default(auto()) @map("_id") @db.ObjectId
+name String?
+img  String?
+img1 String?
 
 }
 
