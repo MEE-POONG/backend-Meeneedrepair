@@ -23,7 +23,7 @@ categoryname String?
 categorybrand String?
 categoryprice String?
 
-// product Product[]
+product Product[]
 }
 
 model Product {
@@ -43,8 +43,8 @@ productim3 String?
 productim4 String?
 
 
-// categoryId String? @db.ObjectId
-// category Category? @relation(fields: [categoryId], references: [id])
+categoryId String? @db.ObjectId
+category Category? @relation(fields: [categoryId], references: [id])
 
 }
 
@@ -69,3 +69,10 @@ img1 String?
 }
 
 
+model ReportProduct {
+id  String  @id @default(auto()) @map("_id") @db.ObjectId
+name  String?
+title String?
+subtitle String?
+
+}

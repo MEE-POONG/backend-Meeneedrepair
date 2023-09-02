@@ -117,7 +117,7 @@ const ProductPage: React.FC = () => {
       <div className="partner-page h-100">
         <Card className="h-100">
           <Card.Header className="d-flex space-between">
-            <h4 className="mb-0 py-1">รายการสินค้า</h4>
+            <h4 className="mb-0 py-1">รายชื่อข่าว</h4>
 
             {/* ค้นหาข้อมูล */}
             {/* <InputGroup className="w-auto" bsPrefix="input-icon">
@@ -207,10 +207,10 @@ const ProductPage: React.FC = () => {
                         <FaPen />
                         <span className="h-tooltiptext">แก้ไขข้อมูล</span>
                       </Link>
-                      <DeleteModal
+                      {/* <DeleteModal
                         data={product}
-                        apiDelete={() => deleteproduct(product.id)}
-                      />
+                        apiDelete={() => deletenewsSchool(product.id)}
+                      /> */}
                     </td>
                   </tr>
                 ))}

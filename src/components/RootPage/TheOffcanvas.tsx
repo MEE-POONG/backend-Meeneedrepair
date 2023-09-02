@@ -53,7 +53,7 @@ const TheOffcanvas: React.FC<TheOffcanvasProps> = ({ show, onToggleShow }) => {
                         </i>
                         <span className="ms-2">Home</span>
                     </Link>
-                    <div id="partner" className='select-page'>
+                    {/* <div id="partner" className='select-page'>
                         <Dropdown.Toggle onClick={() => handlePath('/partner')} className={asPath === "/partner" || asPath === "/partner/add" || asPath === "/partner/user-ag" || asPath.startsWith("/partner/edit/") ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
                             <i >
                                 <FaTachometerAlt />
@@ -69,49 +69,30 @@ const TheOffcanvas: React.FC<TheOffcanvasProps> = ({ show, onToggleShow }) => {
                                 <span>UserAg</span>
                             </Link>
                         </Dropdown.Menu>
-                    </div>
-                    <div id="bot-auto" className='select-page'>
-                        <Dropdown.Toggle onClick={() => handlePath('/bot')} className={asPath === "/bot" || asPath === "/bot/agent" ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
+                    </div> */}
+                   
+                    <div id="Product" className='select-page'>
+                        <Dropdown.Toggle onClick={() => handlePath('/product')} className={asPath === "/product" || asPath === "/product/reportproduct" ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
                             <i >
                                 <FaTachometerAlt />
                             </i>
-                            <span className="ms-2">Bot Auto</span>
+                            <span className="ms-2">รายการสินค้า</span>
                         </Dropdown.Toggle>
-
-                        <Dropdown.Menu className="bg-transparent border-0" show={checkClickPath === "/bot" || checkClickPath === "/bot/agent" || checkClickPath === "/bot/listname"} >
-                            <Link href="/bot" className={asPath === "/bot" ? "nav-link active" : "nav-link"}>
-                                <span>คำสั่งบอท</span>
+                        <Dropdown.Menu className="bg-transparent border-0" show={checkClickPath === "/product" || checkClickPath === "/product/reportproduct" || checkClickPath === "/product/listname"} >
+                            <Link href="/product" className={asPath === "/product" || asPath === "/product/reportproduct" ? "nav-link active" : "nav-link"}>
+                                <span>สินค้า</span>
                             </Link>
-                            <Link href="/bot/customer" className={asPath === "/bot" || asPath === "/bot/customer" ? "nav-link active" : "nav-link"}>
-                                <span>ลูกค้า</span>
+                            <Link href="/product/reportproduct" className={asPath === "/product" || asPath === "/product/reportproduct" ? "nav-link active" : "nav-link"}>
+                                <span>รายงานสินค้า</span>
                             </Link>
-                            <Link href="/bot/agent" className={asPath === "/bot" || asPath === "/bot/agent" ? "nav-link active" : "nav-link"}>
-                                <span>เอเย่น</span>
-                            </Link>
-                            <Link href="/bot/master" className={asPath === "/bot" || asPath === "/bot/agent" ? "nav-link active" : "nav-link"}>
-                                <span>มาสเตอร์</span>
-                            </Link>
-                        </Dropdown.Menu>
-                    </div>
-                    <div id="income" className='select-page'>
-                        <Dropdown.Toggle onClick={() => handlePath('/income')} className={asPath === "/income" || asPath === "/income/agent" ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
-                            <i >
-                                <FaTachometerAlt />
-                            </i>
-                            <span className="ms-2">income Auto</span>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="bg-transparent border-0" show={checkClickPath === "/income" || checkClickPath === "/income/agent" || checkClickPath === "/income/listname"} >
-                            <Link href="/income" className={asPath === "/income" || asPath === "/income/agent" ? "nav-link active" : "nav-link"}>
-                                <span>ได้เสียลูกค้า</span>
-                            </Link>
-                            <Link href="/income" className={asPath === "/income" || asPath === "/income/agent" ? "nav-link active" : "nav-link"}>
-                                <span>ได้เสียเอเย่น</span>
-                            </Link>
-                            <Link href="/income" className={asPath === "/income" || asPath === "/income/agent" ? "nav-link active" : "nav-link"}>
+                            {/* <Link href="/product" className={asPath === "/product" || asPath === "/product/reportproduct" ? "nav-link active" : "nav-link"}>
                                 <span>ได้เสียมาสเตอร์</span>
-                            </Link>
+                            </Link> */}
                         </Dropdown.Menu>
                     </div>
+
+
+
                     <div id="setting" className='select-page'>
                         <Dropdown.Toggle onClick={() => handlePath('/setting')} className={asPath === "/setting" || asPath === "/setting/admin" || asPath === "/setting/admin/team" ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
                             <i >
