@@ -70,7 +70,30 @@ const TheOffcanvas: React.FC<TheOffcanvasProps> = ({ show, onToggleShow }) => {
                             </Link>
                         </Dropdown.Menu>
                     </div> */}
-                   
+
+
+                    <div id="Repairreport" className='select-page'>
+                        <Dropdown.Toggle onClick={() => handlePath('/appointment')} className={asPath === "/appointment" || asPath === "/appointment/reportproduct" ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
+                            <i >
+                                <FaTachometerAlt />
+                            </i>
+                            <span className="ms-2">แจ้งซ่อม</span>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu className="bg-transparent border-0" show={checkClickPath === "/appointment" || checkClickPath === "/appointment/reportproduct" || checkClickPath === "/appointment/listname"} >
+                            <Link href="/appointment" className={asPath === "/appointment" || asPath === "/appointment/reportproduct" ? "nav-link active" : "nav-link"}>
+                                <span>แจ้งเตือนการซ่อม</span>
+                            </Link>
+                            {/* <Link href="/product/reportproduct" className={asPath === "/product" || asPath === "/product/reportproduct" ? "nav-link active" : "nav-link"}>
+                                <span>รายงานสินค้า</span>
+                            </Link> */}
+                            {/* <Link href="/product" className={asPath === "/product" || asPath === "/product/reportproduct" ? "nav-link active" : "nav-link"}>
+                                <span>ได้เสียมาสเตอร์</span>
+                            </Link> */}
+                        </Dropdown.Menu>
+                    </div>
+
+
+
                     <div id="Product" className='select-page'>
                         <Dropdown.Toggle onClick={() => handlePath('/product')} className={asPath === "/product" || asPath === "/product/reportproduct" ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
                             <i >
@@ -90,6 +113,7 @@ const TheOffcanvas: React.FC<TheOffcanvasProps> = ({ show, onToggleShow }) => {
                             </Link> */}
                         </Dropdown.Menu>
                     </div>
+
 
 
 

@@ -76,3 +76,17 @@ title String?
 subtitle String?
 
 }
+
+
+
+
+model Appointment{
+id  String  @id @default(auto()) @map("_id") @db.ObjectId
+fname String? 
+lname String?
+email String?
+tel String?
+request String?
+message String?
+}
+
