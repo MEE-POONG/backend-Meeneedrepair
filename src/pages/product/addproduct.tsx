@@ -94,7 +94,6 @@ const ProductAdd: React.FC = () => {
         // Upload the image
         if (productimg) {
           const formData = new FormData();
-          formData.append("file", productimg); // Assuming 'productimg' is a File object
           const uploadResponse = await axios.post(
             "https://upload-image.me-prompt-technology.com/",
             formData
