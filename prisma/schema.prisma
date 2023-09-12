@@ -59,6 +59,15 @@ img1 String?
 
 }
 
+model Blog {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  title    String?
+  subtitle String?
+  detail   String?
+  img      String?
+  img1     String?
+}
+
 
 model Promote {
 id  String  @id @default(auto()) @map("_id") @db.ObjectId
