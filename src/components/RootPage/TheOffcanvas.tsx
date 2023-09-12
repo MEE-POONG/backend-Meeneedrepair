@@ -4,6 +4,7 @@ import { FaBars, FaRegEnvelope, FaShoppingBag, FaTachometerAlt, FaUserEdit } fro
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { Blog } from '@prisma/client';
 
 interface TheOffcanvasProps {
     show: boolean;
@@ -52,6 +53,12 @@ const TheOffcanvas: React.FC<TheOffcanvasProps> = ({ show, onToggleShow }) => {
                             <FaTachometerAlt />
                         </i>
                         <span className="ms-2">Home</span>
+                    </Link>
+                    <Link href="/blog" className={asPath === "/blog" ? "nav-link active" : "nav-link"}>
+                        <i >
+                            <FaTachometerAlt />
+                        </i>
+                        <span className="ms-2">Blog</span>
                     </Link>
                     {/* <div id="partner" className='select-page'>
                         <Dropdown.Toggle onClick={() => handlePath('/partner')} className={asPath === "/partner" || asPath === "/partner/add" || asPath === "/partner/user-ag" || asPath.startsWith("/partner/edit/") ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
