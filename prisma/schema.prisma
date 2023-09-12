@@ -49,14 +49,15 @@ category Category? @relation(fields: [categoryId], references: [id])
 }
 
 
-model  News {
-id  String  @id @default(auto()) @map("_id") @db.ObjectId
-title String?
-subtitle String?
-detail String? 
-img String?
-img1 String?
-
+model News {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  title    String?
+  subtitle String?
+  detail   String?
+  date     String?
+  author   String? //ผู้เขียน
+  refer    String? //อ้างอิง
+  img      String?
 }
 
 
