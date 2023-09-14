@@ -124,7 +124,7 @@ const BlogAdd: React.FC = () => {
       </Head>
       <div className='Blog-page'>
         <Card>
-          <AddModal checkAlertShow={alertForm} setCheckAlertShow={setAlertForm} checkBody={checkBody} pathBack={"/blog"} />
+          <AddModal checkAlertShow={alertForm} setCheckAlertShow={setAlertForm} checkBody={checkBody} />
           <Card.Header className="d-flex space-between">
             <h4 className="mb-0 py-1">
               เพิ่มข่าว
