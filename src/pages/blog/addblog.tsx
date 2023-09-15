@@ -13,6 +13,8 @@ const BlogAdd: React.FC = () => {
   const [title, settitle] = useState<string>("");
   const [subtitle, setsubtitle] = useState<string>("");
   const [detail, setdetail] = useState<string>("");
+  const [date, setdate] = useState<string>("");
+  const [author, setauthor] = useState<string>("");
   const [img, setimg] = useState<File | null>(null);
   const [alertForm, setAlertForm] = useState<string>("not");
   const [inputForm, setInputForm] = useState<boolean>(false);
@@ -33,6 +35,8 @@ const BlogAdd: React.FC = () => {
     settitle("");
     setsubtitle("");
     setdetail("");
+    setdate("");
+    setauthor("");
     setimg(null);
 
     setAlertForm("not");
@@ -55,6 +59,10 @@ const BlogAdd: React.FC = () => {
     if (!title) missingFields.push("title");
     if (!subtitle) missingFields.push("subtitle");
     if (!detail) missingFields.push("detail");
+
+    if (!date) missingFields.push("date");
+    if (!author) missingFields.push("author");
+
     if (!img) missingFields.push("blogImg");
 
 
@@ -85,6 +93,8 @@ const BlogAdd: React.FC = () => {
                 title,
                 subtitle,
                 detail,
+                date,
+                author,
               img: imageId, // Use the uploaded image ID
               
             };
@@ -158,6 +168,30 @@ const BlogAdd: React.FC = () => {
                     value={subtitle}
                     onChange={e => setsubtitle(e.target.value)}
                     placeholder="title2"
+                  />
+                </FloatingLabel>
+              </Col>
+              <Col md={4}>
+                <FloatingLabel controlId="date" label="วันที่" className="mb-3">
+                  <Form.Control
+                    isValid={inputForm && date !== ""}
+                    isInvalid={inputForm && date === ""}
+                    type="date"
+                    value={date}
+                    onChange={e => setdate(e.target.value)}
+                    placeholder="date"
+                  />
+                </FloatingLabel>
+              </Col>
+              <Col md={4}>
+                <FloatingLabel controlId="author" label="ผู้เขียน" className="mb-3">
+                  <Form.Control
+                    isValid={inputForm && author !== ""}
+                    isInvalid={inputForm && author === ""}
+                    type="author"
+                    value={author}
+                    onChange={e => setauthor(e.target.value)}
+                    placeholder="author"
                   />
                 </FloatingLabel>
               </Col>

@@ -22,6 +22,8 @@ const BlogAdd: React.FC = () => {
     const [title, settitle] = useState<string>("");
     const [subtitle, setsubtitle] = useState<string>("");
     const [detail, setdetail] = useState<string>("");
+    const [date, setdate] = useState<string>("");
+    const [author, setauthor] = useState<string>("");
     const [img, setimg] = useState<string>("");
     const [alertForm, setAlertForm] = useState<string>("not");
     const [inputForm, setInputForm] = useState<boolean>(false);
@@ -54,6 +56,8 @@ const BlogAdd: React.FC = () => {
                 title,
                 subtitle,
                 detail,
+                date,
+                author,
                 img: imageId, // Use the uploaded image ID
                 // ... (ตาม field อื่น ๆ)
             } = BlogData;
@@ -61,6 +65,8 @@ const BlogAdd: React.FC = () => {
             settitle(title);
             setsubtitle(subtitle);
             setdetail(detail);
+            setdate(date);
+            setauthor(author);
             setimg(img);
 
 
@@ -90,7 +96,8 @@ const BlogAdd: React.FC = () => {
         if (!title) missingFields.push("BlogTitle");
         if (!subtitle) missingFields.push("BlogSubTitle");
         if (!detail) missingFields.push("BlogSubDetail");
-        // if (!newImg) missingFields.push("BlogImg");
+        if (!date) missingFields.push("date");
+        if (!author) missingFields.push("author");
 
         if (missingFields.length > 0) {
             setAlertForm("warning");
@@ -104,6 +111,8 @@ const BlogAdd: React.FC = () => {
                     title,
                     subtitle,
                     detail,
+                    date,
+                    author,
                     // newImg,
                     /*img,*/
                 };
@@ -177,6 +186,30 @@ const BlogAdd: React.FC = () => {
                                         value={subtitle}
                                         onChange={e => setsubtitle(e.target.value)}
                                         placeholder="title2"
+                                    />
+                                </FloatingLabel>
+                            </Col>
+                            <Col md={4}>
+                                <FloatingLabel controlId="date" label="วันที่" className="mb-3">
+                                    <Form.Control
+                                        isValid={inputForm && date !== ""}
+                                        isInvalid={inputForm && date === ""}
+                                        type="date"
+                                        value={date}
+                                        onChange={e => setdate(e.target.value)}
+                                        placeholder="date"
+                                    />
+                                </FloatingLabel>
+                            </Col>
+                            <Col md={4}>
+                                <FloatingLabel controlId="date" label="author" className="mb-3">
+                                    <Form.Control
+                                        isValid={inputForm && author !== ""}
+                                        isInvalid={inputForm && author === ""}
+                                        type="author"
+                                        value={author}
+                                        onChange={e => setauthor(e.target.value)}
+                                        placeholder="author"
                                     />
                                 </FloatingLabel>
                             </Col>

@@ -66,6 +66,8 @@ model Blog {
   detail   String?
   img      String?
   img1     String?
+  date     String?
+  author   String?
 }
 
 

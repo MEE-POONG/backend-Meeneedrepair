@@ -89,11 +89,12 @@ const BlogPage: React.FC = () => {
     if (blogData?.blog) {
       // Filter the registerForm data based on searchKey
       const filteredData = blogData.blog.filter((blog: any) =>
-        // Convert both the searchKey and the relevant data to lowercase for case-insensitive search
+        // Convert both the searchKey and the relevant data to lowercase for case-insensitive search  
         blog.title.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         blog.subtitle.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         blog.detail.toLowerCase().includes(params.searchKey.toLowerCase()) ||
-        blog.blogubDetail.toLowerCase().includes(params.searchKey.toLowerCase()) 
+        blog.date.toLowerCase().includes(params.searchKey.toLowerCase()) ||
+        blog.author.toLowerCase().includes(params.searchKey.toLowerCase()) 
       );
 
       setFilteredblogsData(filteredData);
@@ -135,14 +136,14 @@ const BlogPage: React.FC = () => {
                 <tr>
                   <th className="w-t-150">No</th>
                   <th className="w-t-150">ชื่อ BLOG</th>
-                  {/* <th className="subtitle">วัน/เดือน/ปี เกิด</th> */}
                   <th className="w-t-150">หัวข้อ BLOG</th>
-                  {/* <th>สัญชาติ</th> */}
+                
+                  <th className="w-t-150">วันที่</th>
+                  <th className="w-t-150">ผู้เขียน</th>
                   <th className="w-t-150">รายละเอียด BLOG</th>
 
-                  {/* <th>ชื่อ ภาษาอังกฤษ</th>
-                  <th>นามสกุล ภาษาอังกฤษ</th> */}
-                  {/* <th>คำอธิบายBLOG</th> */}
+                  
+                  
                   <th className="w-t-150">รูปภาพ</th>
                   <th className="w-t-150">จัดการ</th>
                 </tr>
@@ -158,7 +159,8 @@ const BlogPage: React.FC = () => {
                     <td>{blog.subtitle}</td>
                     {/* <td>{blog.regNation}</td> */}
                     {/* <td>{blog.blogubDetail}</td> */}
-
+                    <td>{blog.date}</td>
+                    <td>{blog.author}</td>
                     <td>{blog.detail ? (
                       blog.detail.length > 100 ? (
                         `${blog.detail.substring(0, 100)}...`
