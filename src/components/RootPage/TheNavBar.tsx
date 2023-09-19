@@ -20,7 +20,7 @@ const TheNavBar: React.FC<TheNavBarProps> = ({ show, onToggleShow }) => {
         <Link href="/" className="navbar-brand me-4">
           <h3 className="text-primary">
             <FaUserEdit className="fa me-2" />
-            MeePrompt
+            Mee Need Repai
           </h3>
         </Link>
         <TheButtonOffcanvas show={show} onToggleShow={onToggleShow} />
