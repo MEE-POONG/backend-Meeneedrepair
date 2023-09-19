@@ -168,7 +168,13 @@ const NewsPage: React.FC = () => {
                       <td className="w-t-150">{index + 1}</td>
                       <td className="w-t-150">{news.title}</td>
                       <td className="w-t-150">{news.subtitle}</td>
-                      <td className="w-t-150">{news.detail}</td>
+                      <td className="w-t-150">{news.detail ? (
+                      news.detail.length > 100 ? (
+                        `${news.detail.substring(0, 100)}...`
+                      ) : (
+                        news.detail
+                      )
+                    ) : null}</td>
                       <td className="w-t-150">{news.date}</td>
                       <td className="w-t-150">{news.author}</td>
                       <td className="w-t-150">{news.refer}</td>
