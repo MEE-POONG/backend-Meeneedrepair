@@ -1,8 +1,16 @@
 .offcanvas {
     padding-top: 50px;
     transition: transform 0.5s ease-in-out;
-    &.offcanvas-start {
-        width: 175px;
+    @media (max-width: 1024px) {
+        &.offcanvas-start {
+            width: 100%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        &.offcanvas-start {
+            width: 175px;
+        }
     }
     .nav-link {
         font-size: 16px;
