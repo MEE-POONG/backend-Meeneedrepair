@@ -154,34 +154,34 @@ const ProductPage: React.FC = () => {
             <Table striped bordered hover className="scroll">
               <thead>
                 <tr>
-                  <th className="no">No</th>
-                  <th >ชื่อสินค้า</th>
-                  <th>แบรนสินค้า</th>
-                  <th>รุ่น</th>
-                  <th>รายละเอียด</th>
-                  <th>ประเภท</th>
-                  <th>ต้นทุน</th>
-                  <th>ราคา</th>
-                  <th>สินค้าคงคลัง</th>
-                  <th>รูป</th>
-                  <th>จัดการ</th>
+                  <th className="w-t-150">No</th>
+                  <th className="w-t-150">ชื่อสินค้า</th>
+                  <th className="w-t-150">แบรนสินค้า</th>
+                  <th className="w-t-150">รุ่น</th>
+                  <th className="w-t-150">รายละเอียด</th>
+                  <th className="w-t-150">ประเภท</th>
+                  <th className="w-t-150">ต้นทุน</th>
+                  <th className="w-t-150">ราคา</th>
+                  <th className="w-t-150">สินค้าคงคลัง</th>
+                  <th className="w-t-150">รูป</th>
+                  <th className="w-t-150">จัดการ</th>
                 </tr>
               </thead>
 
               <tbody className="text-center">
                 {filteredproductsData.map((product, index) => (
                   <tr key={product.id}>
-                    <td>{index + 1}</td>
-                    <td>{product.productname}</td>
-                    <td>{product.productbrand}</td>
-                    <td>{product.productmodel}</td>
-                    <td>{product.productdetail}</td>
-                    <td>{product.producttype}</td>
-                    <td>{product.productcost}</td>
-                    <td>{product.productprice}</td>
-                    <td>{product.productremaining}</td>
+                    <td className="w-t-150">{index + 1}</td>
+                    <td className="w-t-150">{product.productname}</td>
+                    <td className="w-t-150">{product.productbrand}</td>
+                    <td className="w-t-150">{product.productmodel}</td>
+                    <td className="w-t-150">{product.productdetail}</td>
+                    <td className="w-t-150">{product.producttype}</td>
+                    <td className="w-t-150">{product.productcost}</td>
+                    <td className="w-t-150">{product.productprice}</td>
+                    <td className="w-t-150">{product.productremaining}</td>
                
-                    <td>
+                    <td className="w-t-150">
                       <Image
                         src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${product.productimg}/public`}
                         alt="newsSchool imge"
