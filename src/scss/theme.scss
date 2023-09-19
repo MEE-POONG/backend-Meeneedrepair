@@ -16,6 +16,16 @@
     transition: margin-left 0.5s ease-in-out 0s, width 0.5s ease-in-out 0s;
     padding: 1rem 1rem 0 1rem;
     height: calc(100vh - 55px);
+    .card{
+        .card-body{
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+        .card-footer{
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+    }
 }
 button,
 .btn {
