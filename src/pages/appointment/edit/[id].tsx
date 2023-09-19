@@ -9,7 +9,7 @@ import LayOut from "@/components/RootPage/TheLayOut";
 
 
 
-const appointmentAdd: React.FC = () => {
+const AppointmentAdd: React.FC = () => {
   const router = useRouter();
   const { id } = router.query;
   const [
@@ -195,7 +195,7 @@ const appointmentAdd: React.FC = () => {
     </LayOut >
   );
 }
-export default appointmentAdd;
+export default AppointmentAdd;
 
 function setAlertForm(arg0: string) {
   throw new Error("Function not implemented.");
