@@ -9,7 +9,7 @@ interface LayoutProps {
 }
 
 const LayOut: React.FC<LayoutProps> = ({ children }) => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   const handleToggleShow = () => setShow(!show);
 
