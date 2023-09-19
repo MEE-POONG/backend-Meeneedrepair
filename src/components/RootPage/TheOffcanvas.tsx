@@ -109,10 +109,10 @@ const TheOffcanvas: React.FC<TheOffcanvasProps> = ({ show, onToggleShow }) => {
                             <span className="ms-2">รายการสินค้า</span>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="bg-transparent border-0" show={checkClickPath === "/product" || checkClickPath === "/product/reportproduct" || checkClickPath === "/product/listname"} >
-                            <Link href="/product" className={asPath === "/product" || asPath === "/product/reportproduct" ? "nav-link active" : "nav-link"}>
+                            <Link href="/product" className={asPath === "/product"  ? "nav-link active" : "nav-link"}>
                                 <span>สินค้า</span>
                             </Link>
-                            <Link href="/product/reportproduct" className={asPath === "/product" || asPath === "/product/reportproduct" ? "nav-link active" : "nav-link"}>
+                            <Link href="/product/reportproduct" className={ asPath === "/product/reportproduct" ? "nav-link active" : "nav-link"}>
                                 <span>รายงานสินค้า</span>
                             </Link>
                             {/* <Link href="/product" className={asPath === "/product" || asPath === "/product/reportproduct" ? "nav-link active" : "nav-link"}>
