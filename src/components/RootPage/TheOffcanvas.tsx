@@ -54,29 +54,28 @@ const TheOffcanvas: React.FC<TheOffcanvasProps> = ({ show, onToggleShow }) => {
                         </i>
                         <span className="ms-2">Home</span>
                     </Link>
-                    <Link href="/blog" className={asPath === "/blog" ? "nav-link active" : "nav-link"}>
-                        <i >
-                            <FaTachometerAlt />
-                        </i>
-                        <span className="ms-2">Blog</span>
-                    </Link>
-                    {/* <div id="partner" className='select-page'>
-                        <Dropdown.Toggle onClick={() => handlePath('/partner')} className={asPath === "/partner" || asPath === "/partner/add" || asPath === "/partner/user-ag" || asPath.startsWith("/partner/edit/") ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
+
+                    <div id="Repairreport" className='select-page'>
+                        <Dropdown.Toggle onClick={() => handlePath('/news')} className={asPath === "/news" || asPath === "/news" ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
                             <i >
                                 <FaTachometerAlt />
                             </i>
-                            <span className="ms-2">Partner</span>
+                            <span className="ms-2">จัดการข่าว</span>
                         </Dropdown.Toggle>
-
-                        <Dropdown.Menu className="bg-transparent border-0" show={checkClickPath === "/partner" || checkClickPath === "/partner/user-ag" || checkClickPath === "/partner" || asPath === "/partner/add" || asPath.startsWith("/partner/edit/")} >
-                            <Link href="/partner" className={asPath === "/partner" || asPath === "/partner/add" || asPath.startsWith("/partner/edit/") ? "nav-link active" : "nav-link"}>
-                                <span>พันธมิตร</span>
+                        <Dropdown.Menu className="bg-transparent border-0" show={checkClickPath === "/news" || checkClickPath === "/news" || checkClickPath === "/news"} >
+                            <Link href="/news" className={asPath === "/news" || asPath === "/news/reportproduct" ? "nav-link active" : "nav-link"}>
+                                <span>ข่าว</span>
                             </Link>
-                            <Link href="/partner/user-ag" className={asPath === "/partner/user-ag" ? "nav-link active" : "nav-link"}>
-                                <span>UserAg</span>
+                            <Link href="/blog" className={asPath === "/blog" || asPath === "/blog" ? "nav-link active" : "nav-link"}>
+                                <span>บล็อค</span>
                             </Link>
+                            {/* <Link href="/product" className={asPath === "/product" || asPath === "/product/reportproduct" ? "nav-link active" : "nav-link"}>
+                                <span>ได้เสียมาสเตอร์</span>
+                            </Link> */}
                         </Dropdown.Menu>
-                    </div> */}
+                    </div>
+
+
 
 
                     <div id="Repairreport" className='select-page'>
@@ -123,7 +122,7 @@ const TheOffcanvas: React.FC<TheOffcanvasProps> = ({ show, onToggleShow }) => {
 
 
 
-                    <div id="News" className='select-page'>
+                    {/* <div id="News" className='select-page'>
                         <Dropdown.Toggle onClick={() => handlePath('/news')} className={asPath === "/news" || asPath === "/news/reportproduct" ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
                             <i >
                                 <FaTachometerAlt />
@@ -134,11 +133,9 @@ const TheOffcanvas: React.FC<TheOffcanvasProps> = ({ show, onToggleShow }) => {
                             <Link href="/news" className={asPath === "/news" || asPath === "/news/reportproduct" ? "nav-link active" : "nav-link"}>
                                 <span>จัดการข่าว</span>
                             </Link>
-                            {/* <Link href="/product/reportproduct" className={asPath === "/product" || asPath === "/product/reportproduct" ? "nav-link active" : "nav-link"}>
-                                <span>รายงานสินค้า</span>
-                            </Link> */}
+                           
                         </Dropdown.Menu>
-                    </div>
+                    </div> */}
 
 
 
