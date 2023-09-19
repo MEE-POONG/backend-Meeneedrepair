@@ -136,18 +136,18 @@ const TheOffcanvas: React.FC<TheOffcanvasProps> = ({ show, onToggleShow }) => {
 
 
 
-                    <div id="setting" className='select-page'>
-                        <Dropdown.Toggle onClick={() => handlePath('/setting')} className={asPath === "/setting" || asPath === "/setting/admin" || asPath === "/setting/admin/team" ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
+                    <div id="settingpages" className='select-page'>
+                        <Dropdown.Toggle onClick={() => handlePath('/settingpages')} className={asPath === "/settingpages" || asPath === "/settingpages/admin" || asPath === "/settingpages/admin/team" ? "nav-item nav-link active" : "nav-item nav-link"} id="dropdown-custom-components" >
                             <i >
                                 <FaTachometerAlt />
                             </i>
-                            <span className="ms-2">Setting</span>
+                            <span className="ms-2">ตั้งค่า</span>
                         </Dropdown.Toggle>
-                        <Dropdown.Menu className="bg-transparent border-0" show={checkClickPath === "/setting" || checkClickPath === "/setting/admin" || checkClickPath === "/setting/admin/team"} >
-                            <Link href="/setting" className={asPath === "/setting" ? "nav-link active" : "nav-link"}>
-                                <span>ติดต่อเรา</span>
+                        <Dropdown.Menu className="bg-transparent border-0" show={checkClickPath === "/settingpages" || checkClickPath === "/settingpages/admin" || checkClickPath === "/settingpages/admin/team"} >
+                            <Link href="/settingpages" className={asPath === "/settingpages" ? "nav-link active" : "nav-link"}>
+                                <span>ตั้งค่าเพจ</span>
                             </Link>
-                            <Link href="/setting/admin" className={asPath === "/setting/admin" || asPath === "/setting/admin/team" ? "nav-link active" : "nav-link"}>
+                            <Link href="/settingpages/admin" className={asPath === "/settingpages/admin" || asPath === "/settingpages/admin/team" ? "nav-link active" : "nav-link"}>
                                 <span>แอดมิน</span>
                             </Link>
 

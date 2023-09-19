@@ -88,7 +88,7 @@ const NewsPage: React.FC = () => {
   useEffect(() => {
     if (newsData?.news) {
       // Filter the registerForm data based on searchKey
-      const filteredData = newsData.news.filter((news:any) =>
+      const filteredData = newsData.news.filter((news: any) =>
         // Convert both the searchKey and the relevant data to lowercase for case-insensitive search
         news.title.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         news.subtitle.toLowerCase().includes(params.searchKey.toLowerCase()) ||
@@ -96,9 +96,9 @@ const NewsPage: React.FC = () => {
         news.date.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         news.author.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         news.refer.toLowerCase().includes(params.searchKey.toLowerCase()) ||
-        news.img.toLowerCase().includes(params.searchKey.toLowerCase()) 
+        news.img.toLowerCase().includes(params.searchKey.toLowerCase())
 
-    
+
       );
 
       setFilterednewssData(filteredData);
@@ -107,7 +107,7 @@ const NewsPage: React.FC = () => {
 
   return (
     <LayOut>
-      
+
       <div className="partner-page h-100">
         <Card className="h-100">
           <Card.Header className="d-flex space-between">
@@ -134,14 +134,13 @@ const NewsPage: React.FC = () => {
               </InputGroup.Text>
               <Form.Control
                 onChange={e => handleChangesearchKey(e.target.value)}
-                placeholder="ค้นหาสินค้า"
+                placeholder="ค้นหาข่าว"
                 aria-label="news"
                 aria-describedby="basic-addon1"
               />
             </InputGroup>
-
-            <Link href="/news/addnews" className="ms-2 btn icon icofn-primary">
-              เพิ่มสินค้า
+            <Link href="/news/addNews" className="ms-2 btn icon icofn-primary">
+              เพิ่มข่าว
             </Link>
           </Card.Header>
           <Card.Body className="p-0">
@@ -161,50 +160,42 @@ const NewsPage: React.FC = () => {
               </thead>
 
               <tbody className="text-center">
-                {filterednewssData.map((news, index) => (
-                  <tr key={news.id}>
-                    <td>{index + 1}</td>
-                    <td>{news.title}</td>
-                    <td>{news.subtitle}</td>
-                    <td>{news.detail}</td>
-                    <td>{news.date}</td>
-                    <td>{news.author}</td>
-                    <td>{news.refer}</td>
-             
-               
-                    <td>
-                      <Image
-                        src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img}/public`}
-                        alt="newsSchool imge"
-                        thumbnail
-                      />
-                    </td>
+                {filterednewssData
+                  .slice() // สร้างสำเนาของอาร์เรย์เพื่อป้องกันการเปลี่ยนแปลงต้นฉบับ
+                  .sort((a, b) => new Date(1.30).getTime() - new Date(30.1).getTime()) // เรียงลำดับข้อมูลตามวันที่จากใหม่สู่เก่า
+                  .map((news, index) => (
+                    <tr key={news.id}>
+                      <td>{index + 1}</td>
+                      <td>{news.title}</td>
+                      <td>{news.subtitle}</td>
+                      <td>{news.detail}</td>
+                      <td>{news.date}</td>
+                      <td>{news.author}</td>
+                      <td>{news.refer}</td>
 
+                      <td>
+                        <Image
+                          src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img}/public`}
+                          alt="newsSchool imge"
+                          thumbnail
+                        />
+                      </td>
 
-                 
-
-                    {/* <img src={news.img} alt="news" /> */}
-
-                    <td>
-                      {/* <BasicDocument/> */}
-                      {/* <newsSchoolAddnewsSchoolModal data={newsSchool} /> */}
-
-
-                      {/* <EditnewsSchoolModal data={newsSchool} apiEdit={() => editnewsSchool(editList)} /> */}
-                      <Link
-                        href={`/news/edit/${news.id}`}
-                        className="mx-1 btn info icon icon-primary"
-                      >
-                        <FaPen />
-                        <span className="h-tooltiptext">แก้ไขข้อมูล</span>
-                      </Link>
-                      <DeleteModal
-                        data={news}
-                        apiDelete={() => deletenews(news.id)}
-                      />
-                    </td>
-                  </tr>
-                ))}
+                      <td>
+                        <Link
+                          href={`/news/edit/${news.id}`}
+                          className="mx-1 btn info icon icon-primary"
+                        >
+                          <FaPen />
+                          <span className="h-tooltiptext">แก้ไขข้อมูล</span>
+                        </Link>
+                        <DeleteModal
+                          data={news}
+                          apiDelete={() => deletenews(news.id)}
+                        />
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </Table>
           </Card.Body>
