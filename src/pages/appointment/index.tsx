@@ -118,27 +118,27 @@ const AppointmentPage: React.FC = () => {
             <Table striped bordered hover className="scroll">
               <thead>
                 <tr>
-                  <th className="no">No</th>
-                  <th >ชื่อ</th>
-                  <th>นามสกุล</th>
-                  <th>อีเมล</th>
-                  <th>เบอร์โทร</th>
-                  <th>อุปกรณ์ที่ต้องการซ่อม</th>
-                  <th>รายละเอียด</th>
-                  <th>จัดการ</th>
+                  <th className="w-t-150">No</th>
+                  <th className="w-t-150">ชื่อ</th>
+                  <th className="w-t-150">นามสกุล</th>
+                  <th className="w-t-150">อีเมล</th>
+                  <th className="w-t-150">เบอร์โทร</th>
+                  <th className="w-t-150">อุปกรณ์ที่ต้องการซ่อม</th>
+                  <th className="w-t-150">รายละเอียด</th>
+                  <th className="w-t-150">จัดการ</th>
                 </tr>
               </thead>
 
               <tbody className="text-center">
                 {filteredappointmentsData.map((appointment, index) => (
                   <tr key={appointment.id}>
-                    <td>{index + 1}</td>
-                    <td>{appointment.fname}</td>
-                    <td>{appointment.lname}</td>
-                    <td>{appointment.email}</td>
-                    <td>{appointment.tel}</td>
-                    <td>{appointment.request}</td>
-                    <td>{appointment.message}</td>
+                    <td className="w-t-150">{index + 1}</td>
+                    <td className="w-t-150">{appointment.fname}</td>
+                    <td className="w-t-150">{appointment.lname}</td>
+                    <td className="w-t-150">{appointment.email}</td>
+                    <td className="w-t-150">{appointment.tel}</td>
+                    <td className="w-t-150">{appointment.request}</td>
+                    <td className="w-t-150">{appointment.message}</td>
   
 
                     {/* <img src={appointment.img} alt="appointment" /> */}

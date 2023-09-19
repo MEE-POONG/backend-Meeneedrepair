@@ -147,15 +147,15 @@ const NewsPage: React.FC = () => {
             <Table striped bordered hover className="scroll">
               <thead>
                 <tr>
-                  <th className="no">No</th>
-                  <th >หัวข้อข่าว</th>
-                  <th>หัวข้อข่าวย่อย</th>
-                  <th>รายละเอียด</th>
-                  <th>วันที่</th>
-                  <th>ผู้เขียน</th>
-                  <th>อ้างอิง</th>
-                  <th>รูป</th>
-                  <th>จัดการ</th>
+                  <th className="w-t-150">No</th>
+                  <th className="w-t-150">หัวข้อข่าว</th>
+                  <th className="w-t-150">หัวข้อข่าวย่อย</th>
+                  <th className="w-t-150">รายละเอียด</th>
+                  <th className="w-t-150">วันที่</th>
+                  <th className="w-t-150">ผู้เขียน</th>
+                  <th className="w-t-150">อ้างอิง</th>
+                  <th className="w-t-150">รูป</th>
+                  <th className="w-t-150">จัดการ</th>
                 </tr>
               </thead>
 
@@ -165,15 +165,15 @@ const NewsPage: React.FC = () => {
                   .sort((a, b) => new Date(1.30).getTime() - new Date(30.1).getTime()) // เรียงลำดับข้อมูลตามวันที่จากใหม่สู่เก่า
                   .map((news, index) => (
                     <tr key={news.id}>
-                      <td>{index + 1}</td>
-                      <td>{news.title}</td>
-                      <td>{news.subtitle}</td>
-                      <td>{news.detail}</td>
-                      <td>{news.date}</td>
-                      <td>{news.author}</td>
-                      <td>{news.refer}</td>
+                      <td className="w-t-150">{index + 1}</td>
+                      <td className="w-t-150">{news.title}</td>
+                      <td className="w-t-150">{news.subtitle}</td>
+                      <td className="w-t-150">{news.detail}</td>
+                      <td className="w-t-150">{news.date}</td>
+                      <td className="w-t-150">{news.author}</td>
+                      <td className="w-t-150">{news.refer}</td>
 
-                      <td>
+                      <td className="w-t-150">
                         <Image
                           src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${news.img}/public`}
                           alt="newsSchool imge"

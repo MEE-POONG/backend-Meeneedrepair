@@ -84,28 +84,47 @@ const ProductPage: React.FC = () => {
     }));
   };
 
-
   useEffect(() => {
     if (productData?.product) {
-      // Filter the registerForm data based on searchKey
-      const filteredData = productData.product.filter((product:any) =>
-        // Convert both the searchKey and the relevant data to lowercase for case-insensitive search
-        product.productname.toLowerCase().includes(params.searchKey.toLowerCase()) ||
-        product.productbrand.toLowerCase().includes(params.searchKey.toLowerCase()) ||
-        product.productmodel.toLowerCase().includes(params.searchKey.toLowerCase()) ||
-        product.productdetail.toLowerCase().includes(params.searchKey.toLowerCase()) ||
-        product.producttype.toLowerCase().includes(params.searchKey.toLowerCase()) ||
-        product.productcost.toLowerCase().includes(params.searchKey.toLowerCase()) ||
-        product.productprice.toLowerCase().includes(params.searchKey.toLowerCase()) ||
-        product.productremaining.toLowerCase().includes(params.searchKey.toLowerCase()) ||
-        product.productimg.toLowerCase().includes(params.searchKey.toLowerCase()) 
-
-    
-      );
-
+      // Filter the product data based on searchKey
+      const filteredData = productData.product.filter((product: Product | null) => {
+        if (product) {
+          // Extract properties and convert them to lowercase
+          const {
+            productname,
+            productbrand,
+            productmodel,
+            productdetail,
+            producttype,
+            productcost,
+            productprice,
+            productremaining,
+            productimg,
+          } = product;
+  
+          // Check if any of the properties contain the searchKey
+          const containsSearchKey =
+            (productname?.toLowerCase().includes(params.searchKey.toLowerCase()) ?? false) ||
+            (productbrand?.toLowerCase().includes(params.searchKey.toLowerCase()) ?? false) ||
+            (productmodel?.toLowerCase().includes(params.searchKey.toLowerCase()) ?? false) ||
+            (productdetail?.toLowerCase().includes(params.searchKey.toLowerCase()) ?? false) ||
+            (producttype?.toLowerCase().includes(params.searchKey.toLowerCase()) ?? false) ||
+            (productcost?.toLowerCase().includes(params.searchKey.toLowerCase()) ?? false) ||
+            (productprice?.toLowerCase().includes(params.searchKey.toLowerCase()) ?? false) ||
+            (productremaining?.toLowerCase().includes(params.searchKey.toLowerCase()) ?? false) ||
+            (productimg?.toLowerCase().includes(params.searchKey.toLowerCase()) ?? false);
+  
+          return containsSearchKey;
+        }
+        return false; // If product is null, don't include it in the filtered results
+      });
+  
       setFilteredproductsData(filteredData);
     }
   }, [productData, params.searchKey]);
+  
+  
+
 
   return (
     <LayOut>

@@ -152,16 +152,16 @@ const BlogPage: React.FC = () => {
               <tbody className="text-center">
                 {filteredblogsData.map((blog, index) => (
                   <tr key={blog.id}>
-                    <td>{index + 1}</td>
+                    <td className="w-t-150">{index + 1}</td>
                     {/* <td>{blog.regId}</td> */}
-                    <td>{blog.title}</td>
+                    <td className="w-t-150">{blog.title}</td>
                     {/* <td>{blog.regBirth}</td> */}
-                    <td>{blog.subtitle}</td>
+                    <td className="w-t-150">{blog.subtitle}</td>
                     {/* <td>{blog.regNation}</td> */}
                     {/* <td>{blog.blogubDetail}</td> */}
-                    <td>{blog.date}</td>
-                    <td>{blog.author}</td>
-                    <td>{blog.detail ? (
+                    <td className="w-t-150">{blog.date}</td>
+                    <td className="w-t-150">{blog.author}</td>
+                    <td className="w-t-150">{blog.detail ? (
                       blog.detail.length > 100 ? (
                         `${blog.detail.substring(0, 100)}...`
                       ) : (
@@ -174,7 +174,7 @@ const BlogPage: React.FC = () => {
                     {/* <td>{blog.regEname}</td>
                     <td>{blog.regElastname}</td> */}
 
-                    <td>
+                    <td className="w-t-150">
                       <Image
                         src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${blog.img}/public`}
                         alt="blog imge"
