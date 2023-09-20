@@ -147,7 +147,7 @@ const NewsAdd: React.FC = () => {
           <AddModal checkAlertShow={alertForm} setCheckAlertShow={setAlertForm} checkBody={checkBody} />
           <Card.Header className="d-flex space-between">
             <h4 className="mb-0 py-1">
-              เพิ่มสินค้า
+              เพิ่มข่าว
             </h4>
           </Card.Header>
           <Card.Body>
