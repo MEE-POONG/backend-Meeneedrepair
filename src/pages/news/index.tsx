@@ -18,6 +18,7 @@ import PageSelect from "@/components/PageSelect";
 import { News } from '@prisma/client';
 import LayOut from "@/components/RootPage/TheLayOut";
 import DeleteModal from "@/components/modal/DeleteModal";
+import ViewDetail from "../blog/viewdetail/[id]";
 
 interface Params {
   page: number;
@@ -188,6 +189,7 @@ const NewsPage: React.FC = () => {
                       </td>
 
                       <td>
+                      <ViewDetail data={news}/>
                         <Link
                           href={`/news/edit/${news.id}`}
                           className="mx-1 btn info icon icon-primary"
