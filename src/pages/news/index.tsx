@@ -135,8 +135,8 @@ const NewsPage: React.FC = () => {
                 <tr>
                   <th className="w-t-150">No</th>
                   <th className="w-t-150">หัวข้อข่าว</th>
-                  <th className="w-t-150">หัวข้อข่าวย่อย</th>
-                  <th className="w-t-150">รายละเอียด</th>
+                  {/* <th className="w-t-150">หัวข้อข่าวย่อย</th>
+                  <th className="w-t-150">รายละเอียด</th> */}
                   <th className="w-t-150">วันที่</th>
                   <th className="w-t-150">ผู้เขียน</th>
                   <th className="w-t-150">อ้างอิง</th>
@@ -153,14 +153,14 @@ const NewsPage: React.FC = () => {
                     <tr key={news.id}>
                       <td className="w-t-150">{index + 1}</td>
                       <td className="w-t-150">{news.title}</td>
-                      <td className="w-t-150">{news.subtitle}</td>
+                      {/* <td className="w-t-150">{news.subtitle}</td>
                       <td className="w-t-150">{news.detail ? (
                       news.detail.length > 100 ? (
                         `${news.detail.substring(0, 100)}...`
                       ) : (
                         news.detail
                       )
-                    ) : null}</td>
+                    ) : null}</td> */}
                       <td className="w-t-150">{news.date}</td>
                       <td className="w-t-150">{news.author}</td>
                       <td className="w-t-150">{news.refer}</td>
