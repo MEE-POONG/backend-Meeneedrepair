@@ -44,7 +44,7 @@ export default function Fillrepair() {
           <Card.Header>
             <h4 className="text-center">คิวจองซ่อม ลูกค้าทั่วไป </h4>
           </Card.Header>
-          <Card.Body className="t-scroll">
+          <div className="t-scroll">
             {filteredappointmentsData
               .filter((appointment) => appointment.status === "ยังไม่ซ่อม")
               .sort((a, b) => new Date(a.time || '').getTime() - new Date(b.time || '').getTime()) // Sort by date
@@ -70,7 +70,7 @@ export default function Fillrepair() {
                   </Accordion.Item>
                 </Accordion>
               ))}
-          </Card.Body>
+          </div>
         </Card>
       </Col>
 
