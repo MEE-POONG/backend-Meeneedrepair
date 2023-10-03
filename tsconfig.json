@@ -28,7 +28,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/pages/test/restricted.js"  ],
   "exclude": [
     "node_modules"
   ]

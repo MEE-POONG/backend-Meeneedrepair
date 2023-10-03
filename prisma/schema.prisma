@@ -11,43 +11,38 @@ datasource db {
 }
 
 model UserName {
-id  String  @id @default(auto()) @map("_id") @db.ObjectId
-username String?
-
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  username String?
 }
 
-
 model Category {
-id  String  @id @default(auto()) @map("_id") @db.ObjectId 
-categoryname String?
-categorybrand String?
-categoryprice String?
+  id            String  @id @default(auto()) @map("_id") @db.ObjectId
+  categoryname  String?
+  categorybrand String?
+  categoryprice String?
 
-product Product[]
+  product Product[]
 }
 
 model Product {
-id  String  @id @default(auto()) @map("_id") @db.ObjectId
-productname String?
-productbrand String?
-productmodel String?
-productdetail String? 
-producttype String?
-productcost String?
-productprice String?
-productremaining String?
-productimg String?
-productim1 String?
-productim2 String?
-productim3 String?
-productim4 String?
+  id               String  @id @default(auto()) @map("_id") @db.ObjectId
+  productname      String?
+  productbrand     String?
+  productmodel     String?
+  productdetail    String?
+  producttype      String?
+  productcost      String?
+  productprice     String?
+  productremaining String?
+  productimg       String?
+  productim1       String?
+  productim2       String?
+  productim3       String?
+  productim4       String?
 
-
-categoryId String? @db.ObjectId
-category Category? @relation(fields: [categoryId], references: [id])
-
+  categoryId String?   @db.ObjectId
+  category   Category? @relation(fields: [categoryId], references: [id])
 }
-
 
 model News {
   id       String  @id @default(auto()) @map("_id") @db.ObjectId
@@ -71,34 +66,32 @@ model Blog {
   author   String?
 }
 
-
 model Promote {
-id  String  @id @default(auto()) @map("_id") @db.ObjectId
-name String?
-img  String?
-img1 String?
-
+  id   String  @id @default(auto()) @map("_id") @db.ObjectId
+  name String?
+  img  String?
+  img1 String?
 }
-
 
 model ReportProduct {
-id  String  @id @default(auto()) @map("_id") @db.ObjectId
-name  String?
-title String?
-subtitle String?
-
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  name     String?
+  title    String?
+  subtitle String?
 }
 
-
-
-
-model Appointment{
-id  String  @id @default(auto()) @map("_id") @db.ObjectId
-fname String? 
-lname String?
-email String?
-tel String?
-request String?
-message String?
+model Appointment {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  fname      String?
+  lname      String?
+  email      String?
+  tel        String?
+  request    String?
+  message    String?
+  date String?
+  time String?
+  status String? @default("ยังไม่ซ่อม") // กำหนดค่าเริ่มต้นเป็น "true"
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
 }
-

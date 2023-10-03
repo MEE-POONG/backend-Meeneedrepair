@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case 'GET':
             try {
                 const page: number = Number(req.query.page) || 1;
-                const pageSize: number = Number(req.query.pageSize) || 10;
+                const pageSize: number = Number(req.query.pageSize) || 1000000;
 
                 const appointment = await prisma.appointment.findMany({
                     skip: (page - 1) * pageSize,

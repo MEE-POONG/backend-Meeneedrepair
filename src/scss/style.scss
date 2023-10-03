@@ -4,6 +4,10 @@
 .x-scroll {
     overflow-x: scroll;
 }
+.t-scroll {
+    max-height: 500px; /* ปรับความสูงตามที่คุณต้องการ */
+    overflow-y: auto;
+  }
 .y-hidden {
     overflow-y: hidden;
 }

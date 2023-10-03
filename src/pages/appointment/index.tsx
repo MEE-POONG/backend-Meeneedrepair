@@ -87,18 +87,13 @@ const AppointmentPage: React.FC = () => {
 
   useEffect(() => {
     if (appointmentData?.appointment) {
-      // Filter the registerForm data based on searchKey
       const filteredData = appointmentData.appointment.filter((appointment:any) =>
-        // Convert both the searchKey and the relevant data to lowercase for case-insensitive search
         appointment.fname.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         appointment.lname.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         appointment.email.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         appointment.tel.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         appointment.request.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         appointment.message.toLowerCase().includes(params.searchKey.toLowerCase()) 
-
-
-    
       );
 
       setFilteredappointmentsData(filteredData);
