@@ -3,6 +3,7 @@ import { Accordion, Alert, Button, Card, Carousel, Col, Row } from "react-bootst
 import useAxios from "axios-hooks";
 import { Appointment } from '@prisma/client';
 import axios from "axios";
+import DeleteModal from '@/components/modal/DeleteModal';
 
 
 export default function Fillrepair() {
@@ -12,6 +13,7 @@ export default function Fillrepair() {
     url: `/api/appointment`,
     method: "GET",
   });
+
   const [
     { loading: deleteappointmentLoading, error: deleteappointmentError },
     executeappointmentDelete,
@@ -20,6 +22,17 @@ export default function Fillrepair() {
   const [filteredappointmentsData, setFilteredappointmentsData] = useState<
     Appointment[]
   >([]);
+
+  const deleteappointment = (id: string): Promise<any> => {
+    return executeappointmentDelete({
+      url: "/api/appointment/" + id,
+      method: "DELETE",
+    }).then(() => {
+      setFilteredappointmentsData((prevappointments) =>
+        prevappointments.filter((appointment) => appointment.id !== id)
+      );
+    });
+  };
 
   useEffect(() => {
     setFilteredappointmentsData(appointmentData?.appointment ?? []);
@@ -65,7 +78,11 @@ export default function Fillrepair() {
                       <Button variant="success" onClick={() => markAsRepaired(appointment.id)}>
                         ซ่อมแล้ว
                       </Button>{' '}
-                      <Button variant="danger">ยกเลิกการซ่อม</Button>{' '}
+                      {/* <DeleteModal
+                        data={appointment}
+                        apiDelete={() => deleteappointment(appointment.id)}
+                      /> */}
+                      <Button variant="danger" onClick={() => deleteappointment(appointment.id)}>ยกเลิกการซ่อม</Button>{' '}
                     </Accordion.Body>
                   </Accordion.Item>
                 </Accordion>
