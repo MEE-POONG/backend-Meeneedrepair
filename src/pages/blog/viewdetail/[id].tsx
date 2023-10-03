@@ -37,7 +37,7 @@ export default function ViewDetail(props: { data: any }) {
                         <div className="container">
                             <div className="my-2">
                                 <h4 className="">ชื่อ BLOG : {props?.data?.title} </h4>
-                                <h4 className="my-2">หัวข้อ BLOG : {props?.data?.subtitle} </h4>
+                                <h4 className="my-2">หัวข้อ BLOG : {props?.data?.subtitle}</h4>
                                 <Row className="my-2">
                                     <img className="my-2" src={`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${props?.data?.img}/500`} alt="Img" />
                                 </Row>

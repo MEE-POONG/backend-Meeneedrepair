@@ -135,12 +135,12 @@ const BlogPage: React.FC = () => {
               <thead>
                 <tr>
                   <th className="w-t-150">No</th>
-                  <th className="w-t-150">ชื่อ BLOG</th>
+                  {/* <th className="w-t-150">ชื่อ BLOG</th> */}
                   <th className="w-t-150">หัวข้อ BLOG</th>
                 
                   <th className="w-t-150">วันที่</th>
                   <th className="w-t-150">ผู้เขียน</th>
-                  <th className="w-t-150">รายละเอียด BLOG</th>
+                  {/* <th className="w-t-150">รายละเอียด BLOG</th> */}
 
                   
                   
@@ -154,20 +154,20 @@ const BlogPage: React.FC = () => {
                   <tr key={blog.id}>
                     <td className="w-t-150">{index + 1}</td>
                     {/* <td>{blog.regId}</td> */}
-                    <td className="w-t-150">{blog.title}</td>
+                    {/* <td className="w-t-150">{blog.title}</td> */}
                     {/* <td>{blog.regBirth}</td> */}
                     <td className="w-t-150">{blog.subtitle}</td>
                     {/* <td>{blog.regNation}</td> */}
                     {/* <td>{blog.blogubDetail}</td> */}
                     <td className="w-t-150">{blog.date}</td>
                     <td className="w-t-150">{blog.author}</td>
-                    <td className="w-t-150">{blog.detail ? (
+                    {/* <td className="w-t-150">{blog.detail ? (
                       blog.detail.length > 100 ? (
                         `${blog.detail.substring(0, 100)}...`
                       ) : (
                         blog.detail
                       )
-                    ) : null}</td>
+                    ) : null}</td> */}
 
 
                     {/* <td>{blog.newDate}</td> */}

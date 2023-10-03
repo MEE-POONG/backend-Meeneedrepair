@@ -18,6 +18,7 @@ import PageSelect from "@/components/PageSelect";
 import { News } from '@prisma/client';
 import LayOut from "@/components/RootPage/TheLayOut";
 import DeleteModal from "@/components/modal/DeleteModal";
+import ViewDetail from "../blog/viewdetail/[id]";
 
 interface Params {
   page: number;
@@ -113,21 +114,6 @@ const NewsPage: React.FC = () => {
           <Card.Header className="d-flex space-between">
             <h4 className="mb-0 py-1">ข่าว</h4>
 
-            {/* ค้นหาข้อมูล */}
-            {/* <InputGroup className="w-auto" bsPrefix="input-icon">
-              <InputGroup.Text id="basic-addon1">
-                <FaSearch />
-              </InputGroup.Text>
-              <Form.Control
-                onChange={e => handleChangeSearchTerm(e.target.value)}
-                placeholder="ค้นหาโปรโมชั่น"
-                aria-label="Fullname"
-                aria-describedby="basic-addon1"
-              />
-            </InputGroup> */}
-            {/* <AddListName /> */}
-
-            {/* ค้นหาข้อมูล */}
             <InputGroup className="w-auto" bsPrefix="input-icon">
               <InputGroup.Text id="basic-addon1">
                 <FaSearch />
@@ -149,8 +135,8 @@ const NewsPage: React.FC = () => {
                 <tr>
                   <th className="w-t-150">No</th>
                   <th className="w-t-150">หัวข้อข่าว</th>
-                  <th className="w-t-150">หัวข้อข่าวย่อย</th>
-                  <th className="w-t-150">รายละเอียด</th>
+                  {/* <th className="w-t-150">หัวข้อข่าวย่อย</th>
+                  <th className="w-t-150">รายละเอียด</th> */}
                   <th className="w-t-150">วันที่</th>
                   <th className="w-t-150">ผู้เขียน</th>
                   <th className="w-t-150">อ้างอิง</th>
@@ -167,14 +153,14 @@ const NewsPage: React.FC = () => {
                     <tr key={news.id}>
                       <td className="w-t-150">{index + 1}</td>
                       <td className="w-t-150">{news.title}</td>
-                      <td className="w-t-150">{news.subtitle}</td>
+                      {/* <td className="w-t-150">{news.subtitle}</td>
                       <td className="w-t-150">{news.detail ? (
                       news.detail.length > 100 ? (
                         `${news.detail.substring(0, 100)}...`
                       ) : (
                         news.detail
                       )
-                    ) : null}</td>
+                    ) : null}</td> */}
                       <td className="w-t-150">{news.date}</td>
                       <td className="w-t-150">{news.author}</td>
                       <td className="w-t-150">{news.refer}</td>
@@ -188,6 +174,7 @@ const NewsPage: React.FC = () => {
                       </td>
 
                       <td>
+                      <ViewDetail data={news}/>
                         <Link
                           href={`/news/edit/${news.id}`}
                           className="mx-1 btn info icon icon-primary"

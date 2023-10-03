@@ -87,13 +87,26 @@ const AppointmentPage: React.FC = () => {
 
   useEffect(() => {
     if (appointmentData?.appointment) {
+<<<<<<< HEAD
       const filteredData = appointmentData.appointment.filter((appointment:any) =>
+=======
+      // Filter the registerForm data based on searchKey
+      const filteredData = appointmentData.appointment.filter((appointment: any) =>
+        // Convert both the searchKey and the relevant data to lowercase for case-insensitive search
+>>>>>>> 3734c8fe7cd89c55687b842b6b212753a2636ac6
         appointment.fname.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         appointment.lname.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         appointment.email.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         appointment.tel.toLowerCase().includes(params.searchKey.toLowerCase()) ||
         appointment.request.toLowerCase().includes(params.searchKey.toLowerCase()) ||
+<<<<<<< HEAD
         appointment.message.toLowerCase().includes(params.searchKey.toLowerCase()) 
+=======
+        appointment.message.toLowerCase().includes(params.searchKey.toLowerCase())
+
+
+
+>>>>>>> 3734c8fe7cd89c55687b842b6b212753a2636ac6
       );
 
       setFilteredappointmentsData(filteredData);
@@ -106,8 +119,20 @@ const AppointmentPage: React.FC = () => {
         <Card className="h-100">
           <Card.Header className="d-flex space-between">
             <h4 className="mb-0 py-1">แจ้งซ่อม</h4>
+            {/* ค้นหาข้อมูล */}
+            <InputGroup className="w-auto" bsPrefix="input-icon">
+              <InputGroup.Text id="basic-addon1">
+                <FaSearch />
+              </InputGroup.Text>
+              <Form.Control
+                onChange={e => handleChangesearchKey(e.target.value)}
+                placeholder="ค้นหาสินค้า"
+                aria-label="product"
+                aria-describedby="basic-addon1"
+              />
+            </InputGroup>
 
-          
+
           </Card.Header>
           <Card.Body className="p-0">
             <Table striped bordered hover className="scroll">
@@ -134,7 +159,7 @@ const AppointmentPage: React.FC = () => {
                     <td className="w-t-150">{appointment.tel}</td>
                     <td className="w-t-150">{appointment.request}</td>
                     <td className="w-t-150">{appointment.message}</td>
-  
+
 
                     {/* <img src={appointment.img} alt="appointment" /> */}
 
