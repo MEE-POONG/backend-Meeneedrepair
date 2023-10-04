@@ -4,6 +4,7 @@ import useAxios from "axios-hooks";
 import { Appointment } from '@prisma/client';
 import axios from "axios";
 import DeleteModal from '@/components/modal/DeleteModal';
+import { BsWrenchAdjustableCircleFill } from "react-icons/bs";
 
 
 export default function Fillrepair() {
@@ -55,7 +56,7 @@ export default function Fillrepair() {
       <Col lg="4" className="h-200">
         <Card>
           <Card.Header>
-            <h4 className="text-center">คิวจองซ่อม ลูกค้าทั่วไป </h4>
+            <h4 className="text-center">คิวจองซ่อม ลูกค้าทั่วไป <BsWrenchAdjustableCircleFill/> </h4>
           </Card.Header>
           <div className="t-scroll">
             {filteredappointmentsData
@@ -78,10 +79,6 @@ export default function Fillrepair() {
                       <Button variant="success" onClick={() => markAsRepaired(appointment.id)}>
                         ซ่อมแล้ว
                       </Button>{' '}
-                      {/* <DeleteModal
-                        data={appointment}
-                        apiDelete={() => deleteappointment(appointment.id)}
-                      /> */}
                       <Button variant="danger" onClick={() => deleteappointment(appointment.id)}>ยกเลิกการซ่อม</Button>{' '}
                     </Accordion.Body>
                   </Accordion.Item>
