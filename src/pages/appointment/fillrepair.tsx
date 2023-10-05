@@ -3,6 +3,8 @@ import { Accordion, Alert, Button, Card, Carousel, Col, Row } from "react-bootst
 import useAxios from "axios-hooks";
 import { Appointment } from '@prisma/client';
 import axios from "axios";
+import DeleteModal from '@/components/modal/DeleteModal';
+import { BsWrenchAdjustableCircleFill } from "react-icons/bs";
 
 
 export default function Fillrepair() {
@@ -12,6 +14,7 @@ export default function Fillrepair() {
     url: `/api/appointment`,
     method: "GET",
   });
+
   const [
     { loading: deleteappointmentLoading, error: deleteappointmentError },
     executeappointmentDelete,
@@ -20,6 +23,17 @@ export default function Fillrepair() {
   const [filteredappointmentsData, setFilteredappointmentsData] = useState<
     Appointment[]
   >([]);
+
+  const deleteappointment = (id: string): Promise<any> => {
+    return executeappointmentDelete({
+      url: "/api/appointment/" + id,
+      method: "DELETE",
+    }).then(() => {
+      setFilteredappointmentsData((prevappointments) =>
+        prevappointments.filter((appointment) => appointment.id !== id)
+      );
+    });
+  };
 
   useEffect(() => {
     setFilteredappointmentsData(appointmentData?.appointment ?? []);
@@ -42,9 +56,9 @@ export default function Fillrepair() {
       <Col lg="4" className="h-200">
         <Card>
           <Card.Header>
-            <h4 className="text-center">คิวจองซ่อม ลูกค้าทั่วไป </h4>
+            <h4 className="text-center">คิวจองซ่อม ลูกค้าทั่วไป <BsWrenchAdjustableCircleFill/> </h4>
           </Card.Header>
-          <Card.Body className="t-scroll">
+          <div className="t-scroll">
             {filteredappointmentsData
               .filter((appointment) => appointment.status === "ยังไม่ซ่อม")
               .sort((a, b) => new Date(a.time || '').getTime() - new Date(b.time || '').getTime()) // Sort by date
@@ -65,12 +79,12 @@ export default function Fillrepair() {
                       <Button variant="success" onClick={() => markAsRepaired(appointment.id)}>
                         ซ่อมแล้ว
                       </Button>{' '}
-                      <Button variant="danger">ยกเลิกการซ่อม</Button>{' '}
+                      <Button variant="danger" onClick={() => deleteappointment(appointment.id)}>ยกเลิกการซ่อม</Button>{' '}
                     </Accordion.Body>
                   </Accordion.Item>
                 </Accordion>
               ))}
-          </Card.Body>
+          </div>
         </Card>
       </Col>
 
